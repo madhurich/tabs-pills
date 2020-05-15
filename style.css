@@ -1,0 +1,39 @@
+ul li{
+    display: inline-block;
+    margin: -2px;
+    width: 90px;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+}
+li.active{
+    border-left: 1px solid #000000;
+    border-top: 1px solid#000000;
+    border-right: 1px solid #000000;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+li:not(.active) {
+    border-bottom: 1px solid#000000;
+    color: #4d88ff;
+}
+
+li:not(.active):hover {
+    background-color:#e6e6e6;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+div.active-content {
+    display: block;
+}
+
+div.tab:not(.active-content) {
+    display: none;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <meta content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <body>
+        <ul>
+            <!-- by default make first one to be active -->
+            <li class="active">tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+        </ul>
+
+        <!-- by default make the first tab content visible-->
+        <div class="tab tab1 active-content">tab1 content</div>
+        <div class="tab tab2">tab2 content</div>
+        <div class="tab tab3">tab3 content</div>
+        <script>
+            var ul = document.querySelectorAll('ul')[0];
+            var lis = ul.children;
+            var divs = document.querySelectorAll('div.tab');
+            ul.addEventListener('click', function(event){
+
+                //remove already added "active" class
+                //from list elements
+                for(var i = 0; i < lis.length; i++) {
+                    if(lis[i].classList.contains('active')) {
+                        lis[i].classList.remove('active');
+                    }
+                }
+                event.target.setAttribute('class', 'active');
+
+                //remove already added "active-content" class
+                //from div.tab elements
+                for( var i = 0; i < divs.length; i++) {
+                    if(divs[i].classList.contains('active-content')) {
+                        divs[i].classList.remove('active-content');
+                    }
+                }
+                //this finds div.tab1, div.tab2 based on innerText and
+                //adds class "active-content"
+                document.querySelectorAll('.' + event.target.innerText)[0].classList.add('active-content');
+            });
+        </script>
+    </body>
+</html>
